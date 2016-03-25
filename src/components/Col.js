@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import style from 'flexboxgrid';
 
 const ModificatorType = PropTypes.oneOfType([PropTypes.number, PropTypes.bool]);
 
@@ -28,14 +27,14 @@ export default class Col extends Component {
     }
 
     if (this.props.reverse) {
-      classes.push(style.reverse);
+      classes.push('.reverse');
     }
 
     for (const key in this.props) {
       if (this.props.hasOwnProperty(key) && this._classMap[key]) {
         let colBaseClass = this._classMap[key];
         colBaseClass = Number.isInteger(this.props[key]) ? (colBaseClass + '-' + this.props[key]) : colBaseClass;
-        classes.push(style[colBaseClass]);
+        classes.push(colBaseClass);
       }
     }
 
